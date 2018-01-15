@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:myCom="http://java.sun.com/jsf/composite/greeting">
+	
+	<f:view contracts="#{test.contract}">
+		<ui:composition template="/templates/default-template.xhtml">
+			<ui:param name="title" value="Page 1"></ui:param>
+			<ui:define name="content">
+				<h1>New Content</h1>
+				
+				<ui:decorate template="/commons/list.xhtml">
+					<ui:param name="items" value="#{[1,2,3]}"></ui:param>
+				</ui:decorate>
+				
+				<ui:decorate template="/commons/list.xhtml">
+					<ui:param name="items" value="#{test.strings}"></ui:param>
+				</ui:decorate>
+				
+				<ui:remove>
+					<h1>Remove Content</h1>
+				</ui:remove>
+				
+				<ui:fragment rendered="#{true}">
+					<h1>Fragment</h1>
+					<h:graphicImage value="#{resource['img:java-icon.svg']}"></h:graphicImage>
+				</ui:fragment>
+				
+				<ui:fragment rendered="#{false}">
+					<h1>Fragment</h1>
+				</ui:fragment>
+				<h:form>
+					<h:commandLink value="Change contract c1" action="#{test.changeContract('c1')}"></h:commandLink> <br/>
+					<h:commandLink value="Change contract c2" action="#{test.changeContract('c2')}"></h:commandLink>
+				</h:form>
+			
+				<myCom:greeting name="Test">
+					<h3>Child Component</h3>
+				</myCom:greeting>
+			</ui:define>
+		</ui:composition>
+	</f:view>
+</html>

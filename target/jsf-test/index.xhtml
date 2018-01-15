@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<h:head>
+		<title>Title</title>
+	</h:head>
+	<h:body>
+		<h:outputText value="#{test.name}"></h:outputText><br/>
+		
+		<h:inputText value="#{test.name}" p:placeholder="Enter email">
+			<f:passThroughAttribute name="type" value="email" />
+		</h:inputText>
+		
+		<h:inputText p:type="number" p:required="required"></h:inputText>
+		
+		<input type="email" jsf:id="email" jsf:placeholder="Enter email"/>
+	</h:body>
+</html>

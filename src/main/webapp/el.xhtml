@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<h:head>
+		<title>Title</title>
+	</h:head>
+	<h:body>
+		<!-- Immediate Evaluation -->
+		<h:outputText value="${test.name}"></h:outputText>
+		<!-- Deferred Evaluation -->
+		<h:outputText value="#{test.name}"></h:outputText>
+		
+		<h:form>
+			<h:inputText value="#{test.name}"></h:inputText>
+			<h:commandButton value="Submit" action="#{test.doAction}"></h:commandButton>
+		</h:form>
+		
+		<h:outputText value="#{test.name == 'test'}"></h:outputText><br/>
+		<h:outputText value="This is a #{test.name}"></h:outputText><br/>
+		<h:outputText value="#{v = (x, y) -> x + y; v(3,4)}"></h:outputText><br/>
+		<h:outputText value="#{test.numbers[0]}"></h:outputText><br/>
+		<h:outputText value="#{test.numbers['0']}"></h:outputText><br/>
+		<h:outputText value="#{empty test.numbers}"></h:outputText><br/>
+		<h:outputText value="#{test.numbers == null}"></h:outputText><br/>
+	</h:body>
+</html>
